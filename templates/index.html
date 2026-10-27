@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090b10"><title>Freaky Tiers — Minecraft PvP</title><link rel="stylesheet" href="/static/style.css"></head>
+<body><header><a class="brand" href="#"><b>F</b><span>FREAKY <i>TIERS</i><small>MINECRAFT PVP RANKINGS</small></span></a><div class="live">● LIVE RANKINGS</div></header>
+<main><section class="hero"><p class="eyebrow">— OFFICIAL PLAYER LADDER</p><h1>PROVE YOUR <em>WORTH.</em></h1>
+<p class="subtitle">Рейтинг игроков и команд Freaky Tiers. Данные синхронизируются с Discord.</p>
+<div class="stats"><div><small>ИГРОКОВ</small><strong id="playerCount">—</strong></div><div><small>КОМАНД</small><strong id="teamCount">—</strong></div><div><small>ОБНОВЛЕНО</small><strong id="lastUpdated">—</strong></div></div></section>
+<section class="panel"><div class="panelhead"><div><small>PLAYER DATABASE</small><h2>Рейтинг игроков</h2></div><input id="searchInput" type="search" placeholder="⌕  Поиск игрока..."></div>
+<nav id="filters"><button class="active" data-tier="ALL">Все тиры</button><button data-tier="LT5">LT5</button><button data-tier="HT5">HT5</button><button data-tier="LT4">LT4</button><button data-tier="HT4">HT4</button><button data-tier="LT3">LT3</button><button data-tier="HT3">HT3</button><button data-tier="LT2">LT2</button><button data-tier="HT2">HT2</button><button data-tier="LT1">LT1</button><button data-tier="HT1">HT1</button></nav>
+<div class="tablewrap"><table><thead><tr><th>ИГРОК</th><th>ТИР</th><th>НАПАРНИК</th><th>КОМАНДА</th></tr></thead><tbody id="players"><tr><td colspan="4" class="empty">Загрузка рейтинга…</td></tr></tbody></table></div>
+<div class="foot"><span>● Автообновление каждые 30 секунд</span><span id="resultCount"></span></div></section><footer>FREAKY TIERS <span>COMMUNITY RANKINGS · MINECRAFT PVP</span></footer></main><script src="/static/app.js"></script></body></html>

@@ -1,0 +1,26 @@
+# Добавь эти импорты/настройки в свой bot.py; не заменяй весь файл.
+import os
+import requests
+
+WEBSITE_SYNC_URL = os.getenv("WEBSITE_SYNC_URL", "").rstrip("/")
+WEBSITE_SYNC_SECRET = os.getenv("WEBSITE_SYNC_SECRET", "")
+
+def sync_rankings_to_website(ranks_data, teams_data):
+    if not WEBSITE_SYNC_URL or not WEBSITE_SYNC_SECRET:
+        return
+    try:
+        response = requests.post(
+            WEBSITE_SYNC_URL + "/api/sync",
+            json={"ranks": ranks_data, "teams": teams_data},
+            headers={"Authorization": f"Bearer {WEBSITE_SYNC_SECRET}"},
+            timeout=10,
+        )
+        response.raise_for_status()
+    except requests.RequestException as exc:
+        print(f"[Website sync] Ошибка: {exc}")
+
+# В командах /setrank и /setteamrank вызови ПОСЛЕ сохранения JSON:
+# save_json(RANKS_FILE, ranks_data)
+# save_json(TEAMS_FILE, teams_data)
+# sync_rankings_to_website(ranks_data, teams_data)
+# Если переменные у тебя называются иначе, подставь их реальные имена.

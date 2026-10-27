@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: freaky-tiers-site
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    healthCheckPath: /health
+    envVars:
+      - key: SITE_SYNC_SECRET
+        generateValue: true
+      - key: DATABASE_PATH
+        value: /var/data/freaky_tiers.db
+    disk:
+      name: freaky-tiers-data
+      mountPath: /var/data
+      sizeGB: 1
